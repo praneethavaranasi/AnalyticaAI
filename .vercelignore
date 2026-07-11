@@ -1,0 +1,13 @@
+pages/
+utils/
+data/
+models/
+assets/
+database/
+*.ipynb
+*.pyc
+__pycache__/
+.git/
+README.md
+requirements-app.txt
+requirements-api.txt
