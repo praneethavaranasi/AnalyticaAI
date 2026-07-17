@@ -14,7 +14,7 @@ custom_css = """
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 /* Hide the original Streamlit SVG/material icons, child elements, and pseudo-elements for collapse/expand */
-[data-testid="stSidebarCollapseButton"] svg,
+[data-testid="stSidebarCollapseButton"] svg,    
 [data-testid="stSidebarCollapseButton"] span,
 [data-testid="stSidebarCollapseButton"] div,
 [data-testid="stSidebarCollapseButton"]::before,
@@ -23,12 +23,7 @@ custom_css = """
 [data-testid="collapsedControl"] span,
 [data-testid="collapsedControl"] div,
 [data-testid="collapsedControl"]::before,
-[data-testid="collapsedControl"]::after,
-.ewrlt5x15 svg,
-.ewrlt5x15 span,
-.ewrlt5x15 div,
-.ewrlt5x15::before,
-.ewrlt5x15::after {
+[data-testid="collapsedControl"]::after {
     display: none !important;
     content: "" !important;
 }
@@ -51,8 +46,7 @@ custom_css = """
 button[data-testid="collapsedControl"],
 [data-testid="stSidebarCollapseButton"]:not([data-testid="stSidebar"] *),
 [data-testid="stSidebarCollapseButton"]:not([data-testid="stSidebar"] *) button,
-button[data-testid="stSidebarCollapseButton"]:not([data-testid="stSidebar"] *),
-.ewrlt5x15 {
+button[data-testid="stSidebarCollapseButton"]:not([data-testid="stSidebar"] *) {
     background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231F2937%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20width%3D%2218%22%20height%3D%2218%22%20x%3D%223%22%20y%3D%223%22%20rx%3D%222%22%20ry%3D%222%22%2F%3E%3Cpath%20d%3D%22M9%203v18%22%2F%3E%3Cpath%20d%3D%22m14%209%203%203-3%203%22%2F%3E%3C%2Fsvg%3E') !important;
     background-repeat: no-repeat !important;
     background-position: center !important;

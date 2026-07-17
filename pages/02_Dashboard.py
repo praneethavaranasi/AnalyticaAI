@@ -215,7 +215,11 @@ if len(corr_cols) > 1:
 
         color_continuous_scale="RdBu_r",
 
-        aspect="auto"
+        aspect="auto",
+
+        zmin=-1.0,
+
+        zmax=1.0
 
     )
 

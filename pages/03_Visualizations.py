@@ -263,6 +263,8 @@ elif chart_type == "Correlation Heatmap":
             text_auto=".2f",
             aspect="auto",
             color_continuous_scale="RdBu_r",
+            zmin=-1.0,
+            zmax=1.0,
             title="Correlation Heatmap"
         )
 
