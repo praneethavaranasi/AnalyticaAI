@@ -198,11 +198,14 @@ st.divider()
 # Correlation Heatmap
 # ---------------------------------------------------
 
-if len(numeric_columns) > 1:
+# Filter columns that are not entirely null and have more than one unique value (non-constant)
+corr_cols = [col for col in numeric_columns if df[col].notnull().any() and df[col].nunique() > 1]
+
+if len(corr_cols) > 1:
 
     st.subheader("Correlation Heatmap")
 
-    corr = df[numeric_columns].corr()
+    corr = df[corr_cols].corr()
 
     fig = px.imshow(
 
@@ -217,8 +220,11 @@ if len(numeric_columns) > 1:
     )
 
     st.plotly_chart(
+
         fig,
+
         use_container_width=True
+
     )
 
 st.divider()

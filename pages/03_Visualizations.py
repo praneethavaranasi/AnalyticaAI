@@ -252,17 +252,23 @@ elif chart_type == "Violin Plot":
 
 elif chart_type == "Correlation Heatmap":
 
-    corr = df[numeric_cols].corr()
+    # Filter columns that are not entirely null and have more than one unique value (non-constant)
+    corr_cols = [col for col in numeric_cols if df[col].notnull().any() and df[col].nunique() > 1]
 
-    fig = px.imshow(
-        corr,
-        text_auto=".2f",
-        aspect="auto",
-        color_continuous_scale="RdBu_r",
-        title="Correlation Heatmap"
-    )
+    if len(corr_cols) > 1:
+        corr = df[corr_cols].corr()
 
-    st.plotly_chart(fig, use_container_width=True)
+        fig = px.imshow(
+            corr,
+            text_auto=".2f",
+            aspect="auto",
+            color_continuous_scale="RdBu_r",
+            title="Correlation Heatmap"
+        )
+
+        st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.warning("Not enough numeric columns with variance to show correlation heatmap.")
 
 # ====================================================
 # Raw Data
