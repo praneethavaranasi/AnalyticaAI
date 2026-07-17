@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 AnalyticaAI
+#  AnalyticaAI
 
 ### AI-Powered CSV Analytics Platform
 
