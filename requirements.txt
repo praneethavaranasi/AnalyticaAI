@@ -1,2 +1,11 @@
+streamlit
+pandas
+numpy
+plotly
+matplotlib
+scikit-learn
+reportlab
+google-generativeai
+python-dotenv
 fastapi
 uvicorn
