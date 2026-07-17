@@ -3,11 +3,6 @@ import pandas as pd
 
 from utils.insights import generate_insights
 
-st.set_page_config(
-    page_title="Business Insights",
-    page_icon="💡",
-    layout="wide"
-)
 
 st.title("💡 AI Business Insights")
 

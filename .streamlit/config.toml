@@ -1,0 +1,7 @@
+[theme]
+base = "light"
+primaryColor = "#6366F1"            # Sleek Indigo
+backgroundColor = "#FFFFFF"         # Clean White
+secondaryBackgroundColor = "#F3F4F6"   # Soft light gray for sidebar/containers
+textColor = "#1F2937"               # Dark Slate for high-readability text
+font = "inter"

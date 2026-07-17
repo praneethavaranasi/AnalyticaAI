@@ -4,7 +4,7 @@ A starter analytics application scaffold with pages for upload, dashboard, visua
 
 ## Structure
 
-- `app.py` - main application entrypoint
+- `App.py` - main application entrypoint
 - `database/analytics.db` - local analytics database file
 - `pages/` - UI page modules
 - `utils/` - data cleaning, analysis, visualization, and reporting utilities
@@ -24,7 +24,7 @@ A starter analytics application scaffold with pages for upload, dashboard, visua
    ```
 3. Run the app:
    ```bash
-   python app.py
+   streamlit run App.py
    ```
 
 ### Deployment note

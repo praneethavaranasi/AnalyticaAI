@@ -22,6 +22,22 @@ genai.configure(api_key=api_key)
 
 model = genai.GenerativeModel("models/gemini-2.0-flash")
 
+def safe_generate_content(prompt):
+    try:
+        response = model.generate_content(prompt)
+        return response.text
+    except Exception as e:
+        error_msg = str(e)
+        if "429" in error_msg or "quota" in error_msg.lower() or "limit" in error_msg.lower():
+            st.error(
+                "⚠️ **Gemini API Quota Exceeded (Error 429)**: You have exceeded the free tier quota for this API key. "
+                "Please wait a few seconds/minutes and try again, or check your billing plan/create a new key "
+                "in [Google AI Studio](https://aistudio.google.com/)."
+            )
+        else:
+            st.error(f"Error calling Gemini API: {error_msg}")
+        return None
+
 # Check dataset
 if "data" not in st.session_state:
 
@@ -96,17 +112,12 @@ else:
                     - If information is unavailable, say so.
                     """
 
-                    response = model.generate_content(
-                        prompt
-                    )
-
-                    st.subheader(
-                        "🤖 AI Response"
-                    )
-
-                    st.write(
-                        response.text
-                    )
+                    res_text = safe_generate_content(prompt)
+                    if res_text:
+                        st.subheader(
+                            "🤖 AI Response"
+                        )
+                        st.write(res_text)
 
                 except Exception as e:
 
@@ -134,11 +145,9 @@ else:
             {df.describe(include='all').to_string()}
             """
 
-            response = model.generate_content(
-                prompt
-            )
-
-            st.write(response.text)
+            res_text = safe_generate_content(prompt)
+            if res_text:
+                st.write(res_text)
 
         if st.button("Business Insights"):
 
@@ -149,11 +158,9 @@ else:
             {df.head(200).to_string()}
             """
 
-            response = model.generate_content(
-                prompt
-            )
-
-            st.write(response.text)
+            res_text = safe_generate_content(prompt)
+            if res_text:
+                st.write(res_text)
 
     with col2:
 
@@ -166,11 +173,9 @@ else:
             {df.head().to_string()}
             """
 
-            response = model.generate_content(
-                prompt
-            )
-
-            st.write(response.text)
+            res_text = safe_generate_content(prompt)
+            if res_text:
+                st.write(res_text)
 
         if st.button("Find Anomalies"):
 
@@ -181,8 +186,6 @@ else:
             {df.head(200).to_string()}
             """
 
-            response = model.generate_content(
-                prompt
-            )
-
-            st.write(response.text)
+            res_text = safe_generate_content(prompt)
+            if res_text:
+                st.write(res_text)
